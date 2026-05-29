@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)file:///C:/Users/ELCOT/Desktop/with%20review.html#contact -->
+<html lang="en" data-theme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+<style>
+:root{
+    --bg: #111;
+    --text: #e9e3e3;
+    --card: #1d2671;
+    --accent: #00c3ff;
+    --gradient1: #2E3192;
+    --gradient2: #1BFFFF;
+    --nav-top: #6a4a7a;
+    --nav-bottom: #d946ef;
+}
+
+[data-theme="light"]{
+    --bg: #f5f5f5;
+    --text: #1a1a1a;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --gradient1: #6366f1;
+    --gradient2: #a855f7;
+    --nav-top: #8b5cf6;
+    --nav-bottom: #ec4899;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+html{
+    scroll-behavior:smooth;
+}
+body{
+    background: var(--bg);
+    color:var(--text);
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Scroll Progress Bar */
+.progress-bar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), #d946ef);
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.1s;
+}
+
+nav{
+    width:100%;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    background: transparent;
+    position:fixed;
+    top:0;
+    z-index:1000;
+}
+.nav-top{
+    background: var(--nav-top);
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition: background 0.3s;
+}
+.nav-bottom{
+    background: var(--nav-bottom);
+    height: 12px;
+    width: 100%;
+    transition: background 0.3s;
+}
+.logo{
+    font-size:30px;
+    font-weight:bold;
+    color:#a7f3d0;
+}
+.nav-right{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+nav ul{
+    display:flex;
+    list-style:none;
+}
+nav ul li{
+    margin-left:25px;
+}
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+    font-weight: 600;
+}
+nav ul li a:hover{
+    color:#a7f3d0;
+}
+
+/* Theme Toggle */
+.theme-toggle{
+    width: 50px;
+    height: 26px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    border: 2px solid white;
+}
+.theme-toggle-ball{
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    transition: 0.3s;
+}
+[data-theme="light"].theme-toggle-ball{
+    left: 26px;
+}
+
+section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:100px 20px;
+}
+.home{
+    background-image:url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+.home-content{
+    animation:slideLeft 1.5s ease;
+}
+.home h1{
+    font-size:60px;
+    margin-top:20px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+.typing-text{
+    margin-top:15px;
+    font-size:22px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    min-height: 30px;
+}
+.typing-text span{
+    border-right: 3px solid var(--accent);
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    50%{ border-color: transparent; }
+}
+.social-icons{
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.social-icons a{
+    width: 45px;
+    height: 45px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+    backdrop-filter: blur(10px);
+}
+.social-icons a:hover{
+    background: white;
+    color: var(--gradient1);
+    transform: translateY(-5px);
+}
+
+.about{
+    background: linear-gradient(135deg,var(--gradient1),var(--gradient2));
+    padding: 100px 20px;
+    text-align: center;
+    transition: background 0.3s;
+}
+.about h2{
+    font-size:50px;
+    margin-bottom:20px;
+}
+.about p{
+    font-size:20px;
+    width:70%;
+    margin:auto;
+    margin-top: 20px;
+    line-height:1.8;
+}
+.Profile{
+    background: linear-gradient(135deg,var(--gradient1),var(--gradient2));
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    border:5px solid white;
+    object-fit:cover;
+    box-shadow:0 0 20px rgba(255,255,255,0.5);
+}
+button{
+    margin-top:25px;
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#0044ff;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.4s;
+    font-weight: 700;
+}
+button:hover{
+    transform:scale(1.1);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+.skills{
+    background: linear-gradient(135deg,var(--gradient1),var(--gradient2));
+    padding: 100px 20px;
+    text-align: center;
+    color: rgb(247, 243, 243);
+    transition: background 0.3s;
+}
+.skill-container{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:30px;
+}
+.skill{
+    background:var(--accent);
+    color:black;
+    padding:20px 40px;
+    border-radius:10px;
+    font-weight:bold;
+    transition:0.4s;
+    cursor:pointer;
+}
+.skill:hover{
+    transform:translateY(-10px);
+    background: white;
+}
+.definition{
+    margin:30px auto 0;
+    font-size:20px;
+    background:white;
+    color:black;
+    padding:20px;
+    border-radius:10px;
+    max-width:800px;
+}
+.projects{
+    background: linear-gradient(135deg,var(--gradient1),var(--gradient2));
+    transition: background 0.3s;
+}
+.projects h2{
+    margin-bottom:20px;
+    color:#fff;
+    font-size:45px;
+    text-shadow: 2px 2px 10px black;
+}
+.filter-btns{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+.filter-btn{
+    padding: 10px 25px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 2px solid white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+    margin: 0;
+}
+.filter-btn.active,
+.filter-btn:hover{
+    background: white;
+    color: var(--gradient1);
+    transform: scale(1.05);
+}
+.project-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+    justify-content:center;
+    margin-top:30px;
+}
+.project-card{
+    width:320px;
+    background:var(--card);
+    color:var(--text);
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    transition:0.3s, background 0.3s, color 0.3s;
+    display: block;
+}
+.project-card.hide{
+    display: none;
+}
+.project-card:hover{
+    transform:translateY(-15px);
+}
+.project-card h3{
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+.project-card p{
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+.project-tag{
+    display: inline-block;
+    padding: 5px 15px;
+    background: var(--accent);
+    color: black;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+/* Testimonials Section */
+.testimonials{
+    background: linear-gradient(135deg,var(--gradient1),var(--gradient2));
+    padding: 100px 20px;
+    transition: background 0.3s;
+}
+.testimonials h2{
+    font-size: 45px;
+    margin-bottom: 50px;
+    color: white;
+    text-shadow: 2px 2px 10px black;
+}
+.testimonial-slider{
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    background: var(--card);
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+.testimonial-slide{
+    display: none;
+    animation: fadeIn 0.5s;
+}
+.testimonial-slide.active{
+    display: block;
+}
+@keyframes fadeIn{
+    from{ opacity: 0; transform: translateY(20px); }
+    to{ opacity: 1; transform: translateY(0); }
+}
+.testimonial-text{
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: var(--text);
+    font-style: italic;
+}
+.testimonial-author{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.testimonial-author img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.author-info h4{
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: var(--text);
+}
+.author-info p{
+    font-size: 14px;
+    color: var(--accent);
+}
+.slider-dots{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+.dot{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: 0.3s;
+}
+.dot.active{
+    background: var(--accent);
+    width: 30px;
+    border-radius: 10px;
+}
+
+.contact{
+    background: linear-gradient(135deg, #2E3192,#1BFFFF);
+    padding: 100px 20px;
+    min-height: 100vh;
+}
+[data-theme="light"].contact{
+    background: #e9d5ff;
+}
+.contact-wrapper{
+    width: 100%;
+    max-width: 900px;
+    background: linear-gradient(135deg, #2E3192,#1BFFFF);
+    border-radius: 25px;
+    padding: 50px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+.contact h2{
+    font-size:45px;
+    margin-bottom:40px;
+    color: #e0e7ff;
+    text-align: left;
+}
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.contact-form input,
+.contact-form textarea{
+    width: 100%;
+    padding: 18px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background: white;
+    color: #333;
+    outline: none;
+}
+.contact-form textarea{
+    min-height: 150px;
+    resize: vertical;
+    font-family: Arial, sans-serif;
+}
+.send-btn{
+    width: 100%;
+    padding: 18px;
+    background: white;
+    color: #6366f1;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+.send-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+.send-btn:disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.contact-buttons{
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+.contact-buttons button{
+    flex: 1;
+    padding: 15px;
+    background: white;
+    color: #6366f1;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 0;
+}
+.contact-buttons button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.form-status{
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-weight: 600;
+    display: none;
+}
+.form-status.success{
+    background: #10b981;
+    color: white;
+    display: block;
+}
+.form-status.error{
+    background: #ef4444;
+    color: white;
+    display: block;
+}
+
+/* Resume Modal */
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+.modal.active{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content{
+    background: var(--card);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    animation: slideDown 0.3s;
+}
+@keyframes slideDown{
+    from{ transform: translateY(-50px); opacity: 0; }
+    to{ transform: translateY(0); opacity: 1; }
+}
+.close-modal{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 35px;
+    color: var(--text);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+.modal h3{
+    color: var(--text);
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+.modal p{
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+.modal.download-btn{
+    width: 100%;
+    padding: 15px;
+    background: var(--accent);
+    color: black;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+footer{
+    background: #1a1a1a;
+    color: #999;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* Back to Top Button */
+.back-to-top{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--accent);
+    color: black;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    z-index: 999;
+}
+.back-to-top.show{
+    opacity: 1;
+    pointer-events: all;
+}
+.back-to-top:hover{
+    transform: translateY(-5px);
+}
+
+.hidden{
+    opacity:0;
+    transform:translateY(100px);
+    transition:all 1s;
+}
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+@keyframes slideLeft{
+    from{
+        opacity:0;
+        transform:translateX(-100px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+@media(max-width:768px){
+.nav-top{
+        flex-direction:column;
+        padding: 15px 20px;
+    }
+    nav ul{
+        margin-top:15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav ul li{
+        margin: 5px 10px;
+    }
+    section{
+        padding-top: 160px;
+    }
+.home h1{
+        font-size:40px;
+    }
+.Profile{
+        width:160px;
+        height:160px;
+    }
+.about p{
+        width: 90%;
+    }
+.projects h2{
+        font-size: 35px;
+    }
+.project-card{
+        width:90%;
+    }
+.contact-wrapper{
+        padding: 30px 20px;
+    }
+.contact-buttons{
+        flex-direction: column;
+    }
+.testimonial-slider{
+        padding: 30px 20px;
+    }
+}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar" style="width: 93.6535%;"></div>
+
+<nav>
+    <div class="nav-top">
+        <div class="logo">My Portfolio</div>
+        <div class="nav-right">
+            <ul>
+                <li><a href="file:///C:/Users/ELCOT/Desktop/with%20review.html#home">Home</a></li>
+                <li><a href="file:///C:/Users/ELCOT/Desktop/with%20review.html#about">About</a></li>
+                <li><a href="file:///C:/Users/ELCOT/Desktop/with%20review.html#skills">Skills</a></li>
+                <li><a href="file:///C:/Users/ELCOT/Desktop/with%20review.html#projects">Projects</a></li>
+                <li><a href="file:///C:/Users/ELCOT/Desktop/with%20review.html#testimonials">Reviews</a></li>
+                <li><a href="file:///C:/Users/ELCOT/Desktop/with%20review.html#contact">Contact</a></li>
+            </ul>
+            <div class="theme-toggle" onclick="toggleTheme()">
+                <div class="theme-toggle-ball"></div>
+            </div>
+        </div>
+    </div>
+    <div class="nav-bottom"></div>
+</nav>
+
+<section class="home" id="home">
+<div class="home-content">
+    <h1>Hello, I'm Sujitha</h1>
+    <p class="typing-text">I'm a <span id="typed">F</span></p>
+    <button onclick="document.getElementById(&#39;contact&#39;).scrollIntoView()">Hire Me</button>
+    <div class="social-icons">
+        <a href="https://github.com/" target="_blank">⚡</a>
+        <a href="https://linkedin.com/" target="_blank">in</a>
+        <a href="mailto:sujitha@gmail.com">✉</a>
+    </div>
+</div>
+</section>
+
+<section class="about hidden show" id="about">
+<div class="about-box">
+<img src="./My Portfolio_files/WIN_20260512_16_45_52_Pro.jpg" class="Profile">
+<h2>🎓 About Me</h2>
+<p>
+I create beautiful responsive websites using
+HTML, CSS and JavaScript, Java, Python,
+C, C++, AngularJS, MongoDB and Full Stack Development.
+</p>
+</div>
+</section>
+
+<section class="skills hidden show" id="skills">
+<div>
+<h2>💻 My Skills</h2>
+<div class="skill-container">
+<div class="skill" onclick="showDefinition(&#39;html&#39;)">HTML</div>
+<div class="skill" onclick="showDefinition(&#39;css&#39;)">CSS</div>
+<div class="skill" onclick="showDefinition(&#39;js&#39;)">JavaScript</div>
+<div class="skill" onclick="showDefinition(&#39;java&#39;)">Java</div>
+<div class="skill" onclick="showDefinition(&#39;python&#39;)">Python</div>
+</div>
+<div class="definition" id="definitionBox">
+Click any skill to see definition
+</div>
+</div>
+</section>
+
+<section class="projects hidden show" id="projects">
+<div>
+<h2>📂 Projects</h2>
+<div class="filter-btns">
+    <button class="filter-btn active" onclick="filterProjects(&#39;all&#39;)">All</button>
+    <button class="filter-btn" onclick="filterProjects(&#39;web&#39;)">Web</button>
+    <button class="filter-btn" onclick="filterProjects(&#39;design&#39;)">Design</button>
+    <button class="filter-btn" onclick="filterProjects(&#39;ai&#39;)">AI</button>
+</div>
+<div class="project-container">
+<div class="project-card" data-category="web">
+<h3>🌐 Portfolio Website</h3>
+<p>Modern responsive website design built with HTML, CSS, and JS.</p>
+<span class="project-tag">Web</span>
+</div>
+<div class="project-card" data-category="design">
+<h3>🎨 UI/UX Workshop</h3>
+<p>Master in UI/UX Design. Learned Figma and design principles.</p>
+<span class="project-tag">Design</span>
+</div>
+<div class="project-card" data-category="ai">
+<h3>🤖 AI Conference</h3>
+<p>Presented at national conference about AI Technology and ML.</p>
+<span class="project-tag">AI</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="testimonials hidden show" id="testimonials">
+<div>
+<h2>⭐ Client Reviews</h2>
+<div class="testimonial-slider">
+    <div class="testimonial-slide active">
+        <p class="testimonial-text">"Sujitha delivered an amazing portfolio website. Fast, responsive, and exactly what I needed. Highly recommended!"</p>
+        <div class="testimonial-author">
+            <img src="./My Portfolio_files/100" alt="Client">
+            <div class="author-info">
+                <h4>Priya Sharma</h4>
+                <p>Startup Founder</p>
+            </div>
+        </div>
+    </div>
+    <div class="testimonial-slide">
+        <p class="testimonial-text">"Professional work with attention to detail. The UI/UX design skills are top-notch. Will work again!"</p>
+        <div class="testimonial-author">
+            <img src="./My Portfolio_files/100(1)" alt="Client">
+            <div class="author-info">
+                <h4>Rahul Kumar</h4>
+                <p>Product Manager</p>
+            </div>
+        </div>
+    </div>
+    <div class="testimonial-slide">
+        <p class="testimonial-text">"Great communication and delivered before deadline. The code quality is excellent and well documented."</p>
+        <div class="testimonial-author">
+            <img src="./My Portfolio_files/100(2)" alt="Client">
+            <div class="author-info">
+                <h4>Anita Desai</h4>
+                <p>Tech Lead</p>
+            </div>
+        </div>
+    </div>
+    <div class="slider-dots">
+        <span class="dot active" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+</div>
+</div>
+</section>
+
+<section class="contact hidden show" id="contact">
+<div class="contact-wrapper">
+<h2>Contact Me</h2>
+<form class="contact-form" id="contactForm" action="https://formsubmit.co/sujitha@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New Portfolio Contact!">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="text" name="name" placeholder="Enter your name" required="">
+    <input type="email" name="email" placeholder="Enter your email" required="">
+    <textarea name="message" placeholder="Your message" required=""></textarea>
+    <button type="submit" class="send-btn">Send Message</button>
+</form>
+<div class="form-status" id="formStatus"></div>
+<div class="contact-buttons">
+    <button onclick="document.getElementById(&#39;contactForm&#39;).scrollIntoView()">Hire Me</button>
+    <button onclick="openResume()">Download CV</button>
+</div>
+</div>
+</section>
+
+<footer>
+    ©2026 My Portfolio All Rights Reserved
+</footer>
+
+<button class="back-to-top show" id="backToTop" onclick="scrollToTop()">↑</button>
+
+<!-- Resume Modal -->
+<div class="modal" id="resumeModal">
+    <div class="modal-content">
+        <button class="close-modal" onclick="closeResume()">×</button>
+        <h3>📄 My Resume</h3>
+        <p><strong>Name:</strong> Sujitha</p>
+        <p><strong>Role:</strong> Frontend Developer &amp; Designer</p>
+        <p><strong>Skills:</strong> HTML, CSS, JavaScript, Java, Python, C, C++, AngularJS, MongoDB, Full Stack</p>
+        <p><strong>Experience:</strong> 2+ years building responsive web applications</p>
+        <p><strong>Education:</strong> B.Tech Computer Science</p>
+        <button class="download-btn" onclick="downloadResume()">Download PDF Resume</button>
+    </div>
+</div>
+
+<script>
+// Theme Toggle
+function toggleTheme(){
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme');
+    html.setAttribute('data-theme', current === 'light'? 'dark' : 'light');
+    localStorage.setItem('theme', html.getAttribute('data-theme'));
+}
+
+// Load saved theme
+const savedTheme = localStorage.getItem('theme') || 'dark';
+document.documentElement.setAttribute('data-theme', savedTheme);
+
+// Typing Effect
+const roles = ['Frontend Developer', 'UI/UX Designer', 'Full Stack Developer', 'Problem Solver'];
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function typeEffect(){
+    const typed = document.getElementById('typed');
+    const current = roles[roleIndex];
+
+    if(isDeleting){
+        typed.textContent = current.substring(0, charIndex--);
+    } else {
+        typed.textContent = current.substring(0, charIndex++);
+    }
+
+    if(!isDeleting && charIndex === current.length + 1){
+        isDeleting = true;
+        setTimeout(typeEffect, 1500);
+    } else if(isDeleting && charIndex === 0){
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        setTimeout(typeEffect, 200);
+    } else {
+        setTimeout(typeEffect, isDeleting? 50 : 100);
+    }
+}
+typeEffect();
+
+// Scroll Progress Bar
+window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    if(winScroll > 300){
+        backToTop.classList.add('show');
+    } else {
+        backToTop.classList.remove('show');
+    }
+});
+
+function scrollToTop(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Intersection Observer
+const hiddenElements = document.querySelectorAll(".hidden");
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.1 });
+
+hiddenElements.forEach((el) => observer.observe(el));
+
+function showDefinition(skill){
+    const definitions = {
+        html: "HTML structures content on the web. It's the skeleton of every webpage.",
+        css: "CSS styles webpages. It controls colors, layouts, fonts, and animations.",
+        js: "JavaScript makes webpages interactive. Handles clicks, forms, and dynamic content.",
+        java: "Java is a versatile OOP language used for backend, Android apps, and enterprise software.",
+        python: "Python is beginner-friendly and powerful. Used for web dev, AI, automation, and data science."
+    };
+    document.getElementById("definitionBox").innerHTML = definitions[skill];
+}
+
+// Project Filter
+function filterProjects(category){
+    const cards = document.querySelectorAll('.project-card');
+    const btns = document.querySelectorAll('.filter-btn');
+
+    btns.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    cards.forEach(card => {
+        if(category === 'all' || card.dataset.category === category){
+            card.classList.remove('hide');
+        } else {
+            card.classList.add('hide');
+        }
+    });
+}
+
+// Testimonial Slider
+let slideIndex = 1;
+let autoSlide;
+
+function showSlide(n){
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.dot');
+
+    if(n > slides.length) slideIndex = 1;
+    if(n < 1) slideIndex = slides.length;
+
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    slides[slideIndex - 1].classList.add('active');
+    dots[slideIndex - 1].classList.add('active');
+}
+
+function currentSlide(n){
+    clearInterval(autoSlide);
+    slideIndex = n;
+    showSlide(slideIndex);
+    startAutoSlide();
+}
+
+function startAutoSlide(){
+    autoSlide = setInterval(() => {
+        slideIndex++;
+        showSlide(slideIndex);
+    }, 5000);
+}
+startAutoSlide();
+
+// Resume Modal
+function openResume(){
+    document.getElementById('resumeModal').classList.add('active');
+}
+
+function closeResume(){
+    document.getElementById('resumeModal').classList.remove('active');
+}
+
+function downloadResume(){
+    alert('Resume PDF download will start. Upload your resume.pdf to your hosting!');
+    // window.open('resume.pdf', '_blank');
+}
+
+window.onclick = function(event){
+    const modal = document.getElementById('resumeModal');
+    if(event.target == modal){
+        closeResume();
+    }
+}
+
+// Form Submit with FormSubmit
+document.getElementById('contactForm').addEventListener('submit', function(e){
+    const btn = this.querySelector('.send-btn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    // FormSubmit will handle the actual sending
+    // This just shows feedback
+    setTimeout(() => {
+        document.getElementById('formStatus').className = 'form-status success';
+        document.getElementById('formStatus').textContent = 'Message sent successfully! I\'ll reply soon.';
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+        this.reset();
+    }, 1000);
+});
+</script>
+
+</body></html>
